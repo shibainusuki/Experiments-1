@@ -8,17 +8,16 @@ class LearningRamda {
     companion object {
         fun main(/*args: Array<String>*/) {
             //calculatePlus()を変数に代入している
-            val plusCalculationFunction = ::calculatePlus
+            //val plusCalculationFunction = ::calculatePlus
             //calculateMinus() を変数に代入している
-            val minusCalculationFunction = ::calculateMinus
+            //val minusCalculationFunction = ::calculateMinus
             printRandomValuesCalculation(plusCalculationFunction)
             printRandomValuesCalculation(minusCalculationFunction)
         }
+        private val plusCalculationFunction = fun(x: Double, y: Double): Double = x + y
+        private val minusCalculationFunction = fun(x: Double, y: Double): Double = x - y
 
-         fun calculatePlus(x: Double, y: Double) = x + y
-        fun calculateMinus(x: Double, y: Double) = x - y
-
-        fun printRandomValuesCalculation(calculator: (Double, Double) -> Double) {
+        private fun printRandomValuesCalculation(calculator: (Double, Double) -> Double) {
             val x = Math.random()
             val y = Math.random()
             val result = calculator(x, y)
@@ -26,6 +25,3 @@ class LearningRamda {
         }
     }
 }
-
-
-
