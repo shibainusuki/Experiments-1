@@ -1,10 +1,10 @@
-package com.example.experiments
+package com.example.experiments.arounlambda
 
 //やさしいKotlin入門37章に載っているコード
 
 //37.2
 
-class LearningRamda {
+class FunctionAsObject {
     companion object {
         fun main(/*args: Array<String>*/) {
             //calculatePlus()を変数に代入している
