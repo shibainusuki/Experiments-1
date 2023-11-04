@@ -5,6 +5,10 @@ class Lambda {
         severalTypeLambda()
     }
 
+    /**
+     * 色々なラムダ式の関数を実行する
+     *
+     */
     private fun severalTypeLambda() {
 
         //NOTE function1~4は全て同じ意味の関数
