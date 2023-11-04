@@ -1,4 +1,4 @@
-package com.example.experiments.arounlambda
+package com.example.experiments.aroundlambda
 
 class Closure {
     //やさしいKotlin入門 38章 クロージャ

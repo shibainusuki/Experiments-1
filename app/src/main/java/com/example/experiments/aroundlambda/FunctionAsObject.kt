@@ -1,4 +1,4 @@
-package com.example.experiments.arounlambda
+package com.example.experiments.aroundlambda
 
 //やさしいKotlin入門37章に載っているコード
 

@@ -20,8 +20,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.experiments.arounlambda.Closure
-import com.example.experiments.arounlambda.FunctionAsObject
+import com.example.experiments.aroundlambda.Closure
+import com.example.experiments.aroundlambda.FunctionAsObject
+import com.example.experiments.aroundlambda.Lambda
 import com.example.experiments.ui.theme.ExperimentsTheme
 
 class MainActivity : ComponentActivity() {
@@ -44,6 +45,9 @@ class MainActivity : ComponentActivity() {
         closure.closureMain()
         closure.likeClosureMain()
         closure.closureMain2()
+
+        val lambda = Lambda()
+        lambda.lambdaMain()
     }
 }
 
