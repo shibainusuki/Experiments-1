@@ -52,4 +52,44 @@ class Closure {
         println(name2)
         println(name3)
     }
+
+
+    //38.3
+    //クロージャを使うと関数の中に値をキャッシュすることができる
+    fun closureMain2() {
+        //関数オブジェクトのインスタンス（closure）を生成しているので、関数ないのnumの数値データが保持される
+        //closure()はどれも同じ関数のインスタンスを参照しているので、numの値がインクリメントされていく。
+        val closure = getCountClosure()
+        val closure2 = getCountClosure()
+        println("クロージャが返した値" + closure())
+        println("クロージャが返した値" + closure())
+        //closure2はclosureと同じ関数だが、別のインスタンスなので数値のインクリメントは別々になる
+        println("クロージャ2が返した値" + closure2())
+        println("クロージャ2が返した値" + closure2())
+        println("クロージャが返した値" + closure())
+
+        //closure()で呼び出すと関数を実行した結果が返されるが、closureで呼び出すとオブジェクトそのものが出力される
+        println("クロージャが返した値 closureで呼び出し" + closure)
+
+        //クロージャを使わずに単純なインクリメントする関数を呼び出した場合
+        println("numIncrement()の実行結果"+numIncrement())
+        println("numIncrement()の実行結果"+numIncrement())
+        println("numIncrement()の実行結果"+numIncrement())
+    }
+
+    //クロージャを使ったインクリメント関数
+    private fun getCountClosure(): () -> Int {
+        var num = 0
+        val closure: () -> Int = fun(): Int {
+            return num++
+        }
+        return closure
+    }
+
+    //クロージャを使わないインクリメント関数
+    private fun numIncrement(): Int {
+        var num = 0
+        num++
+        return num
+    }
 }

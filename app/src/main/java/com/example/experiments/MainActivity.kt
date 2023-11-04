@@ -40,8 +40,10 @@ class MainActivity : ComponentActivity() {
         }
         FunctionAsObject.main()
         FunctionAsObject.showCalculateResult()
-        Closure().closureMain()
-        Closure().likeClosureMain()
+        val closure = Closure()
+        closure.closureMain()
+        closure.likeClosureMain()
+        closure.closureMain2()
     }
 }
 
