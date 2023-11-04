@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import com.example.experiments.aroundlambda.Closure
 import com.example.experiments.aroundlambda.FunctionAsObject
 import com.example.experiments.aroundlambda.Lambda
+import com.example.experiments.extendedfunction.ExtendedFunction
 import com.example.experiments.ui.theme.ExperimentsTheme
 
 class MainActivity : ComponentActivity() {
@@ -48,6 +49,8 @@ class MainActivity : ComponentActivity() {
 
         val lambda = Lambda()
         lambda.lambdaMain()
+
+        ExtendedFunction().main()
     }
 }
 
