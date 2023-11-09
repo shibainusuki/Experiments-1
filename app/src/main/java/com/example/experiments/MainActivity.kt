@@ -23,8 +23,8 @@ import androidx.compose.ui.unit.dp
 import com.example.experiments.aroundlambda.Closure
 import com.example.experiments.aroundlambda.FunctionAsObject
 import com.example.experiments.aroundlambda.Lambda
+import com.example.experiments.dataclass.DataClass
 import com.example.experiments.extendedfunction.ExtendedFunction
-import com.example.experiments.sealedclass.main
 import com.example.experiments.ui.theme.ExperimentsTheme
 
 class MainActivity : ComponentActivity() {
@@ -53,7 +53,9 @@ class MainActivity : ComponentActivity() {
 
         ExtendedFunction().main()
 
-        main(true)
+        //Dada Classの挙動確認
+        DataClass().showDataClassBehavior()
+        DataClass().showNormalClassBehavior()
     }
 }
 
