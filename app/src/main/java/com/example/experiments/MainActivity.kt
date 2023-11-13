@@ -56,6 +56,13 @@ class MainActivity : ComponentActivity() {
         //Dada Classの挙動確認
         DataClass().showDataClassBehavior()
         DataClass().showNormalClassBehavior()
+
+        //Genericsの挙動確認
+        Generics().initBox()
+
+        //FilterAndMap().mappingList()
+        //FilterAndMap().filteringList()
+        FilterAndMap().recreateFruitList()
     }
 }
 
