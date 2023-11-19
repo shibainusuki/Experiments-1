@@ -20,12 +20,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.experiments.aroundlambda.Closure
-import com.example.experiments.aroundlambda.FunctionAsObject
-import com.example.experiments.aroundlambda.Lambda
-import com.example.experiments.dataclass.DataClass
-import com.example.experiments.extendedfunction.ExtendedFunction
+import androidx.lifecycle.ReportFragment.Companion.reportFragment
+import com.example.experiments.kotlinbasic.aroundlambda.Closure
+import com.example.experiments.kotlinbasic.aroundlambda.FunctionAsObject
+import com.example.experiments.kotlinbasic.aroundlambda.Lambda
+import com.example.experiments.kotlinbasic.aroundlambda.dataclass.DataClass
+import com.example.experiments.kotlinbasic.aroundlambda.extendedfunction.ExtendedFunction
+import com.example.experiments.kotlinbasic.aroundlambda.generics.Generics
+import com.example.experiments.kotlinbasic.callback.CallBack
+import com.example.experiments.kotlinbasic.list.FilterAndMap
 import com.example.experiments.ui.theme.ExperimentsTheme
+import kotlinx.coroutines.CoroutineScope
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,28 +46,35 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-        FunctionAsObject.main()
-        FunctionAsObject.showCalculateResult()
+        //FunctionAsObject.main()
+        //FunctionAsObject.showCalculateResult()
         val closure = Closure()
-        closure.closureMain()
-        closure.likeClosureMain()
-        closure.closureMain2()
+        //closure.closureMain()
+        //closure.likeClosureMain()
+        //closure.closureMain2()
 
         val lambda = Lambda()
-        lambda.lambdaMain()
+        //lambda.lambdaMain()
 
         ExtendedFunction().main()
 
         //Dada Classの挙動確認
-        DataClass().showDataClassBehavior()
-        DataClass().showNormalClassBehavior()
+        //DataClass().showDataClassBehavior()
+        //DataClass().showNormalClassBehavior()
 
         //Genericsの挙動確認
-        Generics().initBox()
+        //Generics().initBox()
 
-        //FilterAndMap().mappingList()
-        //FilterAndMap().filteringList()
-        FilterAndMap().recreateFruitList()
+        //filter, mapの挙動確認
+        /*FilterAndMap().apply {
+            mappingList()
+            filteringList()
+            recreateFruitList()
+        }*/
+
+        //CallBack
+        //CallBack().printName()
+        CallBack().printNameWithRunCatching()
     }
 }
 
@@ -86,7 +98,7 @@ fun GreetingPreview() {
 @Composable
 fun HelloScreen() {
     var name by rememberSaveable { mutableStateOf("タロウ") }
-    Log.d("テスト","name is: $name")
+    Log.d("テスト", "name is: $name")
 
     HelloContent(name = name, onNameChange = { name = it })
 }
