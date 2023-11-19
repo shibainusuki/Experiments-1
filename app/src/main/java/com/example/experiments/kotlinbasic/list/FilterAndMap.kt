@@ -1,7 +1,5 @@
 package com.example.experiments.kotlinbasic.list
 
-import java.util.Locale
-
 class FilterAndMap {
 
     //mapの挙動
@@ -20,6 +18,7 @@ class FilterAndMap {
 
 
     //filterの挙動
+    //参考記事：https://qiita.com/watame/items/87b7923d4f3f59ffb653
     fun filteringList() {
         val fruits = listOf("Strawberry", "Grape", "Orange", "")
 
