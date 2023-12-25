@@ -49,7 +49,7 @@ class MainActivity : ComponentActivity() {
         //FunctionAsObject.main()
         //FunctionAsObject.showCalculateResult()
         val closure = Closure()
-        //closure.closureMain()
+        closure.closureMain()
         //closure.likeClosureMain()
         //closure.closureMain2()
 
@@ -75,6 +75,23 @@ class MainActivity : ComponentActivity() {
         //CallBack
         //CallBack().printName()
         CallBack().printNameWithRunCatching()
+
+        val incrementNumFunction =Closure().incrementNum()
+
+        var i = 0
+        while (i < 3) {
+            val incrementedNum = incrementNumFunction()
+            println("テスト：$incrementedNum")
+            i += 1
+        }
+
+        var k = 0
+        while (k < 3) {
+            val incrementNumFunctionFailed =Closure().incrementNumFailed()
+            println("テスト：$incrementNumFunctionFailed")
+            k += 1
+        }
+
     }
 }
 
