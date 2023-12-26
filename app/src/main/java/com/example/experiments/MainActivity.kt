@@ -20,17 +20,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.ReportFragment.Companion.reportFragment
+import com.example.experiments.jetpackcompose.sideeffect.SideEffect
 import com.example.experiments.kotlinbasic.aroundlambda.Closure
-import com.example.experiments.kotlinbasic.aroundlambda.FunctionAsObject
 import com.example.experiments.kotlinbasic.aroundlambda.Lambda
-import com.example.experiments.kotlinbasic.aroundlambda.dataclass.DataClass
-import com.example.experiments.kotlinbasic.aroundlambda.extendedfunction.ExtendedFunction
-import com.example.experiments.kotlinbasic.aroundlambda.generics.Generics
+import com.example.experiments.kotlinbasic.extendedfunction.ExtendedFunction
 import com.example.experiments.kotlinbasic.callback.CallBack
-import com.example.experiments.kotlinbasic.list.FilterAndMap
 import com.example.experiments.ui.theme.ExperimentsTheme
-import kotlinx.coroutines.CoroutineScope
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,7 +102,10 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     ExperimentsTheme {
-        HelloScreen()
+        //HelloScreen()
+        //SideEffect().SideEffectCounter1()
+        SideEffect().SideEffectCounter2()
+        //SideEffect().SideEffectCounter3()
     }
 }
 

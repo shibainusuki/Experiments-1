@@ -4,6 +4,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -88,17 +89,31 @@ class Basic {
     private fun NamePickerItem(name: String, onClicked: (String) -> Unit) {
         Text(
             name,
-            Modifier.clickable(onClick = { onClicked(name) }).padding(16.dp),
+            Modifier
+                .clickable(onClick = { onClicked(name) })
+                .padding(16.dp),
         )
+    }
+
+    @Composable
+    fun MeasureTreeConstructionTime(){
+        Row {
+           Text(text = "テキスト1",modifier = Modifier.offset(x = 10.dp, y = 10.dp))
+            Column {
+                Text(text = "テキスト2")
+                Text(text = "テキスト3")
+            }
+        }
     }
 
     @Preview
     @Composable
     fun ShowPreview() {
         //ListWithBug(myList = arrayListOf("1", "2", "3"))
-        NamePicker(
-            header = "テストヘッダー",
-            names = arrayListOf("name1", "name2", "name3"),
-            onNameClicked = fun(name: String) = println(name))
+//        NamePicker(
+//            header = "テストヘッダー",
+//            names = arrayListOf("name1", "name2", "name3"),
+//            onNameClicked = fun(name: String) = println(name))
+        MeasureTreeConstructionTime()
     }
 }
