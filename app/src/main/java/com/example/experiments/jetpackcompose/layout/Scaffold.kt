@@ -1,12 +1,17 @@
 package com.example.experiments.jetpackcompose.layout
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Call
@@ -26,6 +31,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -52,15 +58,27 @@ class Scaffold {
             //snackbarの実装
             snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
             floatingActionButton = {
-                ExtendedFloatingActionButton(
-                    text = { Text("call me back soon !") },
-                    icon = { Icon(Icons.Default.Call, contentDescription = "") },
-                    onClick = {
+                //ExtendedFloatingActionButtonでなくても実装は可能。ただしまあまあダサい。
+                Row(modifier = Modifier
+                    .background(Color.Gray)
+                    .wrapContentWidth()
+                    .clickable {
                         scope.launch {
                             snackbarHostState.showSnackbar("Snackbar")
                         }
-                    }
-                )
+                    }) {
+                    Icon(Icons.Default.Call, contentDescription = "")
+                    Text(text = "スナックバーボタンです")
+                }
+//                ExtendedFloatingActionButton(
+//                    text = { Text("call me back soon !") },
+//                    icon = { Icon(Icons.Default.Call, contentDescription = "") },
+//                    onClick = {
+//                        scope.launch {
+//                            snackbarHostState.showSnackbar("Snackbar")
+//                        }
+//                    }
+//                )
             },
             topBar = { CreateTopBar() },
             bottomBar = { CreateBottomBar() }
@@ -113,10 +131,10 @@ class Scaffold {
             ) {
                 Icon(
                     imageVector = Icons.Default.Email,
-                    contentDescription = null)
+                    contentDescription = null
+                )
                 Text(text = stringResource(id = R.string.app_bottom_text))
             }
         }
     }
-
 }
