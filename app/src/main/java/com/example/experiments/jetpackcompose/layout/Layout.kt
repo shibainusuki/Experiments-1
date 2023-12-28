@@ -28,6 +28,8 @@ import com.example.experiments.R
 
 class Layout {
 
+    //参考ページ
+    //https://developer.android.com/jetpack/compose/layouts/basics
     @Composable
     fun ShowPreview() {
         BasicLayout()
