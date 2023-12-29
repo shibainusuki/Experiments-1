@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Experiments</string>
     <string name="app_bottom_text">mail</string>
+    <string name="app_dialog">show dialog</string>
+    <string name="app_dialog_title">テストタイトル</string>
+    <string name="app_dialog_text">テストテキストです</string>
+    <string name="app_dialog_confirm_button">許可する</string>
+    <string name="app_dialog_dismiss_button">キャンセルする</string>
+    <string name="app_dialog_approved_result">Approved</string>
+    <string name="app_dialog_canceled_result">Canceled</string>
 </resources>

@@ -20,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.experiments.jetpackcompose.layout.Dialog
 import com.example.experiments.jetpackcompose.sideeffect.SideEffect
 import com.example.experiments.kotlinbasic.aroundlambda.Closure
 import com.example.experiments.kotlinbasic.aroundlambda.Lambda
@@ -38,6 +39,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Greeting("Android")
+                    Dialog().AlertDialogScreen()
                 }
             }
         }
