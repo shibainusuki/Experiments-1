@@ -22,10 +22,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.experiments.jetpackcompose.layout.Dialog
 import com.example.experiments.jetpackcompose.sideeffect.SideEffect
-import com.example.experiments.kotlinbasic.aroundlambda.Closure
-import com.example.experiments.kotlinbasic.aroundlambda.Lambda
-import com.example.experiments.kotlinbasic.extendedfunction.ExtendedFunction
-import com.example.experiments.kotlinbasic.callback.CallBack
+import com.example.experiments.kotlinbasic.functionobject.FunctionObject
+import com.example.experiments.kotlinbasic.runcatching.RunCatchingDemo
 import com.example.experiments.ui.theme.ExperimentsTheme
 
 class MainActivity : ComponentActivity() {
@@ -73,20 +71,22 @@ class MainActivity : ComponentActivity() {
         //CallBack().printName()
         CallBack().printNameWithRunCatching()
 
-        val incrementNumFunction =Closure().incrementNum()
+        val functionObject = FunctionObject()
+        var publishedCustomerId: Int? = null
 
-        var i = 0
-        while (i < 3) {
-            val incrementedNum = incrementNumFunction()
-            println("テスト：$incrementedNum")
-            i += 1
-        }
+        //onPublishを省略しない書き方
+        functionObject.publishTicketScreen(
+            120,
+            onPublished = { id ->
+                publishedCustomerId = id
+            }
+        )
 
-        var k = 0
-        while (k < 3) {
-            val incrementNumFunctionFailed =Closure().incrementNumFailed()
-            println("テスト：$incrementNumFunctionFailed")
-            k += 1
+        //onPublishを省略した書き方
+        functionObject.publishTicketScreen(
+            120
+        ) { id ->
+            publishedCustomerId = id
         }
 
     }
