@@ -1,6 +1,6 @@
 package com.example.experiments.kotlinbasic.list
 
-class FilterAndMap {
+class ListCollection {
 
     //mapの挙動
     //参考記事：https://qiita.com/watame/items/87b7923d4f3f59ffb653
@@ -36,5 +36,19 @@ class FilterAndMap {
 
         fruits.filter { it.isNotEmpty() }.map { "Great$it" }.also { println(it) }
 
+    }
+
+    fun printMembersName() {
+        val members = listOf("Bob", "Taro", "Hanako", "Tomi")
+        println("members.indices: ${members.indices}")
+        for (i in members.indices) {
+            println("members Name is: ${members[i]}")
+        }
+        //出力結果
+        //    members.indices: 0..3
+        //    Name is: Bob
+        //    Name is: Taro
+        //    Name is: Hanako
+        //    Name is: Tomi
     }
 }

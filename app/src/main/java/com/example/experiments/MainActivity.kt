@@ -52,6 +52,8 @@ class MainActivity : ComponentActivity() {
             Log.d("テスト", "Result is Failure")
         }
 
+        //indicesの挙動確認
+        ListCollection().printMembersName()
     }
 }
 
