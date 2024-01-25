@@ -22,7 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.experiments.jetpackcompose.layout.Dialog
 import com.example.experiments.jetpackcompose.sideeffect.SideEffect
-import com.example.experiments.kotlinbasic.functionobject.FunctionObject
+import com.example.experiments.kotlinbasic.list.ListCollection
 import com.example.experiments.kotlinbasic.runcatching.RunCatchingDemo
 import com.example.experiments.ui.theme.ExperimentsTheme
 
@@ -41,52 +41,15 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-        //FunctionAsObject.main()
-        //FunctionAsObject.showCalculateResult()
-        val closure = Closure()
-        closure.closureMain()
-        //closure.likeClosureMain()
-        //closure.closureMain2()
 
-        val lambda = Lambda()
-        //lambda.lambdaMain()
+        val runCatchingDemo = RunCatchingDemo()
 
-        ExtendedFunction().main()
-
-        //Dada Classの挙動確認
-        //DataClass().showDataClassBehavior()
-        //DataClass().showNormalClassBehavior()
-
-        //Genericsの挙動確認
-        //Generics().initBox()
-
-        //filter, mapの挙動確認
-        /*FilterAndMap().apply {
-            mappingList()
-            filteringList()
-            recreateFruitList()
-        }*/
-
-        //CallBack
-        //CallBack().printName()
-        CallBack().printNameWithRunCatching()
-
-        val functionObject = FunctionObject()
-        var publishedCustomerId: Int? = null
-
-        //onPublishを省略しない書き方
-        functionObject.publishTicketScreen(
-            120,
-            onPublished = { id ->
-                publishedCustomerId = id
-            }
-        )
-
-        //onPublishを省略した書き方
-        functionObject.publishTicketScreen(
-            120
-        ) { id ->
-            publishedCustomerId = id
+        runCatching {
+            runCatchingDemo.doConvertStringToInt("あいうえお")
+        }.onSuccess {
+            Log.d("テスト", "converted value is $it")
+        }.onFailure {
+            Log.d("テスト", "Result is Failure")
         }
 
     }
