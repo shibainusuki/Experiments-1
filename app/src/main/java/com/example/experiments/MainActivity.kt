@@ -25,6 +25,7 @@ import com.example.experiments.jetpackcompose.sideeffect.SideEffect
 import com.example.experiments.kotlinbasic.list.ListCollection
 import com.example.experiments.kotlinbasic.runcatching.RunCatchingDemo
 import com.example.experiments.ui.theme.ExperimentsTheme
+import java.io.IOException
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,11 +50,14 @@ class MainActivity : ComponentActivity() {
         }.onSuccess {
             Log.d("テスト", "converted value is $it")
         }.onFailure {
-            Log.d("テスト", "Result is Failure")
+            if(it is IOException){
+                Log.d("テスト", "Result is Failure$it")
+            }
         }
 
-        //zipの挙動確認
-        ListCollection().zip()
+        //mapの挙動確認
+        ListCollection().mapNumListToDoubleNum()
+        ListCollection().extractUserIds()
     }
 }
 

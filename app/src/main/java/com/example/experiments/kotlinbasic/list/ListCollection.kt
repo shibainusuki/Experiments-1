@@ -2,7 +2,7 @@ package com.example.experiments.kotlinbasic.list
 
 class ListCollection {
 
-    //mapの挙動
+    //----------mapの挙動-----------
     //参考記事：https://qiita.com/watame/items/87b7923d4f3f59ffb653
     fun mappingList() {
         val fruits = listOf("Strawberry", "Grape", "Orange")
@@ -16,8 +16,35 @@ class ListCollection {
         println(greatFruits)
     }
 
+    //参考記事: https://maku77.github.io/kotlin/collection/map.html
+    /**
+     * リストの各要素を取り出して2倍にしたリストにする
+     */
+    fun mapNumListToDoubleNum() {
+        val numList = listOf(1, 2, 3)
+        val numDoubleNumList = numList.map { 2 * it }
+        println("numDoubleList:$numDoubleNumList")
+        //出力結果：numDoubleList:[2, 4, 6]
+    }
 
-    //filterの挙動
+    //Dataクラスから要素を取り出して新たにリストを作成する
+    data class User(val id: Int, val name: String)
+
+    /**
+     * Userリストの各IDを取り出して新たにリストを作成する
+     */
+    fun extractUserIds() {
+        val userIds = listOf(
+            User(3298, "Taro"),
+            User(5090, "Hanako"),
+            User(2278, "Tom")
+        ).map { it.id }
+        println("userIds:$userIds")
+        //出力結果userIds:[3298, 5090, 2278]
+    }
+
+
+    //---------------filterの挙動-------------------
     //参考記事：https://qiita.com/watame/items/87b7923d4f3f59ffb653
     fun filteringList() {
         val fruits = listOf("Strawberry", "Grape", "Orange", "")
@@ -38,6 +65,7 @@ class ListCollection {
 
     }
 
+    //----------indicesの挙動-----------
     fun printMembersName() {
         val members = listOf("Bob", "Taro", "Hanako", "Tomi")
         println("members.indices: ${members.indices}")
