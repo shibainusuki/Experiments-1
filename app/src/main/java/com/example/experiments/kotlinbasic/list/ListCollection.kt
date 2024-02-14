@@ -44,6 +44,29 @@ class ListCollection {
     }
 
 
+    /**
+     * Dataクラスの各要素を取り出して、それぞれのリストを作成する
+     *
+     */
+    fun extractUserIdsAndUserName() {
+        val ids = arrayListOf<Int>()
+        val names = arrayListOf<String>()
+
+        listOf(
+            User(3298, "Taro"),
+            User(5090, "Hanako"),
+            User(2278, "Tom")
+        ).map { (userId, userName) ->
+            ids.add(userId)
+            names.add(userName)
+        }
+        println("ids:$ids")
+        println("names:$names")
+        //出力結果 Ids:[3298, 5090, 2278]
+        //出力結果 names:[Taro, Hanako, Tom]
+    }
+
+
     //---------------filterの挙動-------------------
     //参考記事：https://qiita.com/watame/items/87b7923d4f3f59ffb653
     fun filteringList() {
