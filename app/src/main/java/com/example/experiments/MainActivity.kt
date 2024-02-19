@@ -55,11 +55,63 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        //mapの挙動確認
-        ListCollection().mapNumListToDoubleNum()
-        ListCollection().extractUserIds()
+        //CoroutineExperiment().cancelCoroutine()
+        //coroutineJopCancelAndJoinBehavior()
+        ConstructorExp(name = "Taro",18)
+    }
+
+//    private fun coroutineJopCancelAndJoinBehavior() {
+//        job = viewModelScope.launch {
+//            try {
+//                printSleeping()
+//            } catch (cancellationException: CancellationException) {
+//                println(" cancellationException occurred $cancellationException")
+//                throw cancellationException
+//            } catch (e: Throwable) {
+//                println("show error dialog exception is$e")
+//            }
+//        }
+//    }
+
+    private fun coroutineJopCancelAndJoinBehavior() {
+        job = viewModelScope.launch {
+            runCatching {
+                printSleeping()
+            }.onSuccess {
+                println("printSleeping() done")
+            }.onFailure {
+                if (it is CancellationException) {
+                    println(" cancellationException occurred $it")
+                    throw it
+                } else {
+                    println("show error dialog exception is$it")
+                }
+            }
+        }
+    }
+
+    private suspend fun printSleeping() {
+        repeat(100) { i ->
+            println("job: I'm sleeping $i ...")
+            delay(150L)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+    }
+
+    private suspend fun joinJob() {
+        job?.join()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        println("onStopになりました")
+        job?.cancel()
     }
 }
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
