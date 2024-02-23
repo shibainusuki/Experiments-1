@@ -54,10 +54,8 @@ class MainActivity : ComponentActivity() {
                 Log.d("テスト", "Result is Failure$it")
             }
         }
-
-        //CoroutineExperiment().cancelCoroutine()
-        //coroutineJopCancelAndJoinBehavior()
-        ConstructorExp(name = "Taro",18)
+        RemoteControl()
+        DelegateExp().initDelegateExp()
     }
 
 //    private fun coroutineJopCancelAndJoinBehavior() {
