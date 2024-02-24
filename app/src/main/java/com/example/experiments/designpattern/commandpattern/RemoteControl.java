@@ -1,8 +1,12 @@
 package com.example.experiments.designpattern.commandpattern;
 
-import org.w3c.dom.CDATASection;
-
-//リモコンクラス
+/**
+ * リモコンクラス
+ * ・OnとOffのコマンドを入れるための配列を生成している。
+ * ・デフォルトでは配列にはNoCommandインスタンスが格納されている。
+ * ・SetCommandメソッドで指定したスロットにコマンドを設定することができる。
+ * ・ただし、なんのクラスのコマンドなのかは知らない（リビングライトのコマンドなのか、ガレージのシャッターのコマンドなのかなど）
+ */
 public class RemoteControl {
     Command[] onCommands;
     Command[] offCommands;
@@ -37,5 +41,5 @@ public class RemoteControl {
         offCommands[slot].execute();
     }
 
-    
+
 }
