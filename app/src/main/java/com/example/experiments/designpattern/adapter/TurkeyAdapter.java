@@ -1,4 +1,4 @@
-package com.example.experiments.designpattern.commandpattern.adapter;
+package com.example.experiments.designpattern.adapter;
 
 public class TurkeyAdapter implements Duck {
 
