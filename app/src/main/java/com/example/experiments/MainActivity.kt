@@ -54,8 +54,7 @@ class MainActivity : ComponentActivity() {
                 Log.d("テスト", "Result is Failure$it")
             }
         }
-        RemoteControl()
-        DelegateExp().initDelegateExp()
+        RemoteLoader().initialize()
     }
 
 //    private fun coroutineJopCancelAndJoinBehavior() {

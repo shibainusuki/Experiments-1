@@ -2,7 +2,6 @@ package com.example.experiments.designpattern.commandpattern;
 
 import com.example.experiments.designpattern.commandpattern.unsmartpattern.UnSmartDevice;
 import com.example.experiments.designpattern.commandpattern.unsmartpattern.UnSmartLight;
-import com.example.experiments.designpattern.commandpattern.unsmartpattern.UnSmartNoDevice;
 import com.example.experiments.designpattern.commandpattern.unsmartpattern.UnSmartTV;
 
 public class UnSmartRemoteControl {
