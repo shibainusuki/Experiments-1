@@ -20,14 +20,27 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.experiments.designpattern.commandpattern.RemoteControl
+import com.example.experiments.designpattern.commandpattern.RemoteLoader
+import com.example.experiments.designpattern.commandpattern.adapter.DuckTestDrive
 import com.example.experiments.jetpackcompose.layout.Dialog
 import com.example.experiments.jetpackcompose.sideeffect.SideEffect
-import com.example.experiments.kotlinbasic.list.ListCollection
+import com.example.experiments.kotlinbasic.delegate.DelegateExp
 import com.example.experiments.kotlinbasic.runcatching.RunCatchingDemo
 import com.example.experiments.ui.theme.ExperimentsTheme
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.io.IOException
+import kotlin.coroutines.cancellation.CancellationException
 
 class MainActivity : ComponentActivity() {
+    private var job: Job? = null
+    private val viewModelScopeJob = SupervisorJob()
+    private val viewModelScope = CoroutineScope(viewModelScopeJob + Dispatchers.Default)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -50,11 +63,12 @@ class MainActivity : ComponentActivity() {
         }.onSuccess {
             Log.d("テスト", "converted value is $it")
         }.onFailure {
-            if(it is IOException){
+            if (it is IOException) {
                 Log.d("テスト", "Result is Failure$it")
             }
         }
-        RemoteLoader().initialize()
+
+        DuckTestDrive().initDuckTestDrive()
     }
 
 //    private fun coroutineJopCancelAndJoinBehavior() {
