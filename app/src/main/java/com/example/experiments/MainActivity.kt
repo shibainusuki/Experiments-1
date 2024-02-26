@@ -20,12 +20,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.experiments.designpattern.commandpattern.RemoteControl
-import com.example.experiments.designpattern.commandpattern.RemoteLoader
-import com.example.experiments.designpattern.commandpattern.adapter.DuckTestDrive
+import com.example.experiments.designpattern.adapter.DuckTestDrive
+import com.example.experiments.designpattern.commandpattern.kotlinversion.TextEditor
 import com.example.experiments.jetpackcompose.layout.Dialog
 import com.example.experiments.jetpackcompose.sideeffect.SideEffect
-import com.example.experiments.kotlinbasic.delegate.DelegateExp
 import com.example.experiments.kotlinbasic.runcatching.RunCatchingDemo
 import com.example.experiments.ui.theme.ExperimentsTheme
 import kotlinx.coroutines.CoroutineScope
@@ -68,7 +66,8 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        DuckTestDrive().initDuckTestDrive()
+        TextEditor().initCommand()
+        TextEditor().executeCommand(0)
     }
 
 //    private fun coroutineJopCancelAndJoinBehavior() {
