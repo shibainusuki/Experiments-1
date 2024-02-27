@@ -20,8 +20,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.experiments.designpattern.adapter.DuckTestDrive
-import com.example.experiments.designpattern.commandpattern.kotlinversion.TextEditor
+import com.example.experiments.designpattern.facade.HomeTheaterFacade
+import com.example.experiments.designpattern.facade.Projector
+import com.example.experiments.designpattern.facade.Screen
+import com.example.experiments.designpattern.facade.Tuner
 import com.example.experiments.jetpackcompose.layout.Dialog
 import com.example.experiments.jetpackcompose.sideeffect.SideEffect
 import com.example.experiments.kotlinbasic.runcatching.RunCatchingDemo
@@ -66,8 +68,7 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        TextEditor().initCommand()
-        TextEditor().executeCommand(0)
+        HomeTheaterFacade(Tuner(), Projector(), Screen()).startTheaterSystem()
     }
 
 //    private fun coroutineJopCancelAndJoinBehavior() {
