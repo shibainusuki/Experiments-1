@@ -20,12 +20,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.experiments.designpattern.facade.HomeTheaterFacade
-import com.example.experiments.designpattern.facade.Projector
-import com.example.experiments.designpattern.facade.Screen
-import com.example.experiments.designpattern.facade.Tuner
 import com.example.experiments.jetpackcompose.layout.Dialog
 import com.example.experiments.jetpackcompose.sideeffect.SideEffect
+import com.example.experiments.kotlinbasic.ReturnBehavior
 import com.example.experiments.kotlinbasic.runcatching.RunCatchingDemo
 import com.example.experiments.ui.theme.ExperimentsTheme
 import kotlinx.coroutines.CoroutineScope
@@ -67,8 +64,7 @@ class MainActivity : ComponentActivity() {
                 Log.d("テスト", "Result is Failure$it")
             }
         }
-
-        HomeTheaterFacade(Tuner(), Projector(), Screen()).startTheaterSystem()
+        ReturnBehavior().inTryCatch()
     }
 
 //    private fun coroutineJopCancelAndJoinBehavior() {

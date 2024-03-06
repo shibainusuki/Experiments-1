@@ -14,8 +14,6 @@ class DelegateExp {
             it.sleep()
             it.breath()
         }
-
-
     }
 
     interface Animal {
