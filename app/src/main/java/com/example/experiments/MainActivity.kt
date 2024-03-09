@@ -24,6 +24,7 @@ import com.example.experiments.jetpackcompose.layout.Dialog
 import com.example.experiments.jetpackcompose.sideeffect.SideEffect
 import com.example.experiments.kotlinbasic.ReturnBehavior
 import com.example.experiments.kotlinbasic.runcatching.RunCatchingDemo
+import com.example.experiments.library.dataconversion.json.GetJsonContent
 import com.example.experiments.ui.theme.ExperimentsTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -64,21 +65,14 @@ class MainActivity : ComponentActivity() {
                 Log.d("テスト", "Result is Failure$it")
             }
         }
-        ReturnBehavior().inTryCatch()
-    }
 
-//    private fun coroutineJopCancelAndJoinBehavior() {
-//        job = viewModelScope.launch {
-//            try {
-//                printSleeping()
-//            } catch (cancellationException: CancellationException) {
-//                println(" cancellationException occurred $cancellationException")
-//                throw cancellationException
-//            } catch (e: Throwable) {
-//                println("show error dialog exception is$e")
-//            }
-//        }
-//    }
+        GetJsonContent().let {
+            it.extractUserNameFormJson("userName")
+            it.extractUserNameFormJson("id")
+            it.extractUserNameFormJson("JSON_OBJECT")
+            it.extractUserNameFormJson("hogehoge")
+        }
+    }
 
     private fun coroutineJopCancelAndJoinBehavior() {
         job = viewModelScope.launch {
