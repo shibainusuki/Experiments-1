@@ -71,6 +71,7 @@ class MainActivity : ComponentActivity() {
             it.extractUserNameFormJson("id")
             it.extractUserNameFormJson("JSON_OBJECT")
             it.extractUserNameFormJson("hogehoge")
+            it.extractUserNameFormJson("hogehoge2")
         }
     }
 
