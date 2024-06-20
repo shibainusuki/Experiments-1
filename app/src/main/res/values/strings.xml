@@ -9,4 +9,5 @@
     <string name="app_dialog_approved_result">Approved</string>
     <string name="app_dialog_canceled_result">Canceled</string>
     <string name="app_test">test</string>
+    <string name="app_feature_2">feature-2</string>
 </resources>
